@@ -69,7 +69,7 @@ function clicked(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 }
 
 :global(body){
-  background-color: lightgrey;
+  background-color: lightgrey
 
 }
 .main-banners {
@@ -335,7 +335,7 @@ footer {
     
         </section>
 
-        <!-- Info Section -->
+        <!-- Info Section 
         <section class="info">
           <img src="https://image.ibb.co/j4Qz8x/pic1.jpg" alt="">
           <div>
@@ -346,7 +346,7 @@ footer {
           </div>
         </section>
 
-        <!-- Portfolio -->
+      
         <section class="portfolio">
           <img src="https://source.unsplash.com/random/200x200" alt="">
           <img src="https://source.unsplash.com/random/201x200" alt="">
@@ -361,7 +361,7 @@ footer {
 
         <!-- Footer -->
         <footer>
-          <p>GridBiz &copy; 2018</p>
+          <p>James &copy; 2018</p>
         </footer>
 
       </div>
