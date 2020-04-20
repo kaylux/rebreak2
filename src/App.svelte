@@ -70,6 +70,7 @@ function topVideos(){
   display:block;
   margin-left: auto;
   margin-right: auto;
+  overflow: auto;
 }
 .main-banner h1{
 
