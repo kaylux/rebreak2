@@ -1,4 +1,5 @@
   <script>
+  
 
    import  { onMount  } from "svelte";
 
@@ -11,9 +12,9 @@
   var switchVids = 0;
  
   onMount(async function(){
-    const response = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=date');
+    const response = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=date');
       
-    const response2 = await fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=viewcount');
+    const response2 = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=viewcount');
     data = await response.json();
     data2 = await response2.json();
     console.log(data);
@@ -34,28 +35,20 @@
 
    });
 
-function clicked(){//Button Click, 0 = Most Recent, 1 = Most Viewed
+function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 
-  alert('clicked');
-  if(switchVids = 0){
-
-    switchVids = 1;
-    displayedvids = vids2;
-      const frame = document.getElementById("youtubebox");
-
-  frame.parentNode.replaceChild(frame.cloneNode(), frame);
-
-  } else {
-
-    switchVids = 0;
     displayedvids = vids;
-      const frame = document.getElementById("youtubebox");
-
-  frame.parentNode.replaceChild(frame.cloneNode(), frame);
-
-  }
 
 }
+ 
+function topVideos(){
+
+    displayedvids = vids2;
+
+}
+
+
+
 </script>
 
 
@@ -72,13 +65,16 @@ function clicked(){//Button Click, 0 = Most Recent, 1 = Most Viewed
   background-color: lightgrey
 
 }
-.main-banners {
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--dark);
-  background-color: #333;
+.main-banner img,
+.main-banner iframe {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
 }
+.main-banner h1{
 
+  text-align: center;
+}
 .main-wrap {
   
   margin: 30px 50px;
@@ -201,7 +197,7 @@ img {
 .boxes {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .box {
@@ -210,9 +206,10 @@ img {
   padding: 1.5rem 2rem;
   box-shadow: var(--shadow);
   position: relative;
+  grid-template-columns: 1fr 1fr 1fr;
 }
-.box {position: relative; padding-bottom: 56.25%; /* 16:9 */  padding-top: 25px;height:10px;}
-.box iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+.box {position: relative; padding-bottom: 56.25%; /* 16:9 */  padding-top: 25px;height:10px;grid-template-columns: 1fr 1fr 1fr;}
+.box iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;grid-template-columns: 1fr 1fr 1fr;}
 
 
 /* Info */
@@ -229,7 +226,7 @@ img {
 .portfolio {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .portfolio img {
@@ -283,41 +280,53 @@ footer {
   }
 }
 
+
+  a:hover {
+    text-decoration: none;
+  }
+ 
+  .mainVideo{
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+  }
+  .boxes{
+      display: grid;
+  grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
 </style>
 <body>
   <section class="main-wrap">
     <section class="main-banner" id="banner">
-      <div class="container">
-        <div class="row">
-          
-        
-
+      
+     
           <div class="col" id="banner">
-          <center>
+      
             <img src="images/rebreak.png" alt="" class="img-fluid" />
-          </center>
-          
-          </div>
-          
-      </div>
-    
-    
+     
+            <h1> A Fresh take on local news</h1>
+<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frebreaknews%2F&width=450&layout=standard&action=like&size=small&share=true&height=35&appId=2800550546728888" width="450" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>      
+  
     </section>
     <div class="wrapper">
         <!-- Navigation -->
         <nav class="main-nav">
           <ul id="test">
             <li >
-              <a href="#" on:click={clicked}>Top Videos</a>
+              <a href="#" on:click={topVideos}>Top Videos</a>
             </li>
             <li>
-              <a href="#" on:click={clicked}>Recent Videos</a>
+              <a href="#" on:click={recentVideos}>Recent Videos</a>
             </li>
           
           </ul>
         </nav>
         <!-- Top Container -->
-
+        
+     
 
         <!-- Boxes Section -->
         <section class="boxes">
