@@ -12,9 +12,9 @@
   var switchVids = 0;
  
   onMount(async function(){
-    const response = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=date');
+    const response = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=10&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=date');
       
-    const response2 = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=25&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=viewcount');
+    const response2 = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=10&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=viewcount');
     data = await response.json();
     data2 = await response2.json();
     console.log(data);
@@ -65,12 +65,21 @@ function topVideos(){
   background-color: lightgrey
 
 }
-.main-banner img,
-.main-banner iframe {
+.main-banner img
+{
   display:block;
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
+
+  
+}
+.main-banner iframe{
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  
 }
 .main-banner h1{
 
@@ -269,6 +278,11 @@ footer {
     text-align: center;
     margin: auto;
   }
+    .boxes{
+      display: grid;
+  grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
 }
 
 
@@ -278,6 +292,11 @@ footer {
       'showcase'
       'top-box-a'
       'top-box-b';
+  }
+    .boxes{
+      display: grid;
+  grid-gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 }
 
@@ -292,11 +311,7 @@ footer {
 
 
   }
-  .boxes{
-      display: grid;
-  grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+
 
 </style>
 <body>
@@ -309,7 +324,7 @@ footer {
             <img src="images/rebreak.png" alt="" class="img-fluid" />
      
             <h1> A Fresh take on local news</h1>
-<iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frebreaknews%2F&width=450&layout=standard&action=like&size=small&share=true&height=35&appId=2800550546728888" width="450" height="35" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>      
+            <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Frebreaknews%2F&width=450&layout=standard&action=like&size=small&share=true&height=35&appId=2800550546728888" width="200" height="30" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>      
   
     </section>
     <div class="wrapper">
