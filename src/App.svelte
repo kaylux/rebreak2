@@ -11,6 +11,18 @@
   var displayedvids = [ ];
   var switchVids = 0;
  
+ async function apiCall() {
+    const url = `/.netlify/functions/test`;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.log(err);
+    }
+}
+console.log(apiCall);
+
   onMount(async function(){
     const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=10&order=date');
       
