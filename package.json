@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "netlify-lambda": "^1.6.3",
-    "sirv-cli": "^0.4.4",
+    "sirv-cli": "^0.4.4"
   }
 }
