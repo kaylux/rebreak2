@@ -12,25 +12,25 @@
   var switchVids = 0;
  
   onMount(async function(){
-    const response = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=10&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=date');
+    const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=10&order=date');
       
-    const response2 = await fetch('https://www.googleapis.com/youtube/v3/search?part=id&type=video&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&maxResults=10&channelId=UCwIxn6d5t7gZvebnGUoWJ3A&order=viewcount');
+    const response2 = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=10&order=viewcount');
     data = await response.json();
     data2 = await response2.json();
+
     console.log(data);
     console.log(data2);
    
 
   
         for(var index = 0; index < data.items.length; index++){
-        vids[index] = data.items[index].id.videoId; 
-        vids2[index] = data2.items[index].id.videoId; 
+        vids[index] = data.items[index].snippet.resourceId.videoId; 
+        vids2[index] = data2.items[index].snippet.resourceId.videoId;
     
    }
-    console.log(vids);
-    console.log(vids2);
+  
     displayedvids = vids;
-    console.log(displayedvids);
+
 
 
    });
@@ -62,8 +62,8 @@ function topVideos(){
 }
 
 :global(body){
-  background-color: lightgrey
-
+  background-color: lightgrey;
+  background-repeat: no-repeat;
 }
 .main-banner img
 {

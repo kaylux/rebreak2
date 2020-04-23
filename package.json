@@ -16,6 +16,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "sirv-cli": "^0.4.4"
+    "netlify-lambda": "^1.6.3",
+    "sirv-cli": "^0.4.4",
   }
 }
