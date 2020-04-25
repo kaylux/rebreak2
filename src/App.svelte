@@ -14,19 +14,14 @@
   var views = [ ];
   var newVidArray = [];
  
- async function apiCall(parameter) {
-    const url = `/.netlify/functions/test`;
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        return data;
-    } catch (err) {
-        console.log(err);
-    }
-}
+const fetchData = async () =>
+  await (await fetch('/.netlify/functions/test')).json();
 
 
-console.log(apiCall);
+fetchData().then(data => {
+  console.log(data);
+
+})
 
   onMount(async function(){
     const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=50&order=viewcount');
