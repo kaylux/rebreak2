@@ -28,7 +28,7 @@ exports.handler = function(event, context, callback){
   const getVideos = () => {
     axios.get(URL)
       .then(res => send(res.data))
-      .catch(err = send(err));
+      .catch(error = send(error));
   } 
 
   //makign sure method is get
