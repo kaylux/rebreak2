@@ -26,7 +26,7 @@ exports.handler = function(event, context, callback){
   //Personming api call
 
   const getVideos = () => {
-    axios.get('url')
+    axios.get(URL)
       .then(res => send(res.data));
 
   } 
