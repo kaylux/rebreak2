@@ -9,9 +9,12 @@
   var data = [ ];
   var data2 = [ ];
   var displayedvids = [ ];
+  var newis = [ ];
   var switchVids = 0;
+  var views = [ ];
+  var newVidArray = [];
  
- async function apiCall() {
+ async function apiCall(parameter) {
     const url = `/.netlify/functions/test`;
     try {
         const response = await fetch(url);
@@ -21,31 +24,46 @@
         console.log(err);
     }
 }
+
+
 console.log(apiCall);
 
   onMount(async function(){
-    const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=10&order=date');
-      
-    const response2 = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=10&order=viewcount');
-    data = await response.json();
-    data2 = await response2.json();
+    const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=50&order=viewcount');
+    data = await response.json(); // Data from 
+
+
 
     console.log(data);
+
+  
+    for(var index = 0; index < data.items.length; index++){
+      vids[index] = data.items[index].snippet.resourceId.videoId; 
+     }
+
+    var newvids = vids.join();
+    console.log(newvids);
+    const response3 = await fetch('https://www.googleapis.com/youtube/v3/videos?id='+newvids+'&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=statistics');
+    views = await response3.json();
+
+    data2 = views;
+
     console.log(data2);
-   
 
-  
-        for(var index = 0; index < data.items.length; index++){
-        vids[index] = data.items[index].snippet.resourceId.videoId; 
-        vids2[index] = data2.items[index].snippet.resourceId.videoId;
-    
-   }
-  
     displayedvids = vids;
+    
+
+  console.log(data2.items[3].statistics.viewCount);
+  console.log(sortData("statistics.viewCount", views, 'asc'));
+
+
+ });
 
 
 
-   });
+
+
+ 
 
 function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 

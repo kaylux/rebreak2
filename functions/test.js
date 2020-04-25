@@ -1,25 +1,39 @@
-const fetch = require('node-fetch')
+const axios = require('axios');
 
-const API_ENDPOINT = 'https://cat-fact.herokuapp.com/facts'
 
-exports.handler = async (event, context) => {
-  let response
-  try {
-    response = await fetch(API_ENDPOINT)
-    // handle response
-  } catch (err) {
-    return {
-      statusCode: err.statusCode || 500,
-      body: JSON.stringify({
-        error: err.message
-      })
-    }
+
+exports.handler = function(event, context, callback){
+  const API_URL = 'https://www.googleapis.com/youtube/v3/search';
+  const CHANNEL_ID = 'UCwIxn6d5t7gZvebnGUoWJ3A';
+  const API_KEY = 'AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00';
+  const MAX_RESULTS = '10';
+
+ 
+
+  const URL = `${API_URL}?snippet&type=video&key=${API_KEY}&maxResults=${MAX_RESULTS}&channelID=${CHANNEL_ID}&order=date`;
+
+  //SEND user response
+ const send = body => {
+  callback(null, {
+      statusCode: 200,
+      body: body
+      
+  });
+
+
   }
 
-  return {
-    statusCode: 200,
-    body: JSON.stringify({
-      data: response
-    })
+  //Personming api call
+
+  const getVideos = () => {
+    axios.get(URL)
+      .then(res => send(res.data))
+      .catch(err = send(err));
+  } 
+
+  //makign sure method is get
+  if(event.httpMethod == 'GET'){
+    getVideos();
   }
+
 }
