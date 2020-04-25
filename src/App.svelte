@@ -29,23 +29,18 @@ fetchData();
     const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=50&order=viewcount');
     data = await response.json(); // Data from 
 
-
-
-    console.log(data);
-
   
     for(var index = 0; index < data.items.length; index++){
       vids[index] = data.items[index].snippet.resourceId.videoId; 
      }
 
     var newvids = vids.join();
-    console.log(newvids);
+
     const response3 = await fetch('https://www.googleapis.com/youtube/v3/videos?id='+newvids+'&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=statistics');
     views = await response3.json();
 
     data2 = views;
 
-    console.log(data2);
 
     displayedvids = vids;
     
