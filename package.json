@@ -13,9 +13,14 @@
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
+    "svelte": "^3.0.0",
+    "scripts": {
+      "lambda-serve": "netlify-lambda serve functions",
+      "lambda-build": "netlify-lambda build functions"
+    }
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "netlify-lambda": "^1.6.3",
     "node-fetch": "^2.6.0",
     "sirv-cli": "^0.4.4"
