@@ -21,7 +21,9 @@ const fetchData = async () =>
 fetchData().then(data => {
   console.log(data);
 
-})
+});
+
+fetchData();
 
   onMount(async function(){
     const response = await fetch('https://www.googleapis.com/youtube/v3/playlistItems?playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00&part=snippet&maxResults=50&order=viewcount');
@@ -48,8 +50,6 @@ fetchData().then(data => {
     displayedvids = vids;
     
 
-  console.log(data2.items[3].statistics.viewCount);
-  console.log(sortData("statistics.viewCount", views, 'asc'));
 
 
  });
