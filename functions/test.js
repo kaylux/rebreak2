@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback){
   const MAX_RESULTS = '10';
 
  
-  const URL = `'${API_URL}?part=snippet&type=video&key=${API_KEY}&maxResults=${MAX_RESULTS}&channelId=${CHANNEL_ID}&order=date'`;
+  const URL = `${API_URL}?part=snippet&type=video&key=${API_KEY}&maxResults=${MAX_RESULTS}&channelId=${CHANNEL_ID}&order=date`;
 
   //SEND user response
  const send = body => {
