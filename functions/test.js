@@ -3,9 +3,8 @@ const axios = require('axios');
 
 
 exports.handler = function(event, context, callback){
-  const API_URL = 'https://www.googleapis.com/youtube/v3/search';
-  const CHANNEL_ID = 'UCwIxn6d5t7gZvebnGUoWJ3A';
-  const API_KEY = 'AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00';
+  const {API_URL, CHANNEL_ID, API_KEY} = process.env;
+
   const MAX_RESULTS = '10';
 
  
