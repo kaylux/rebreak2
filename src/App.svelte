@@ -25,7 +25,7 @@ fetchData().then(data => {
 });
 
 fetchData();
-
+console.log(data2.items[4].id.videoId);
   onMount(async function(){
   
   
