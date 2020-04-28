@@ -22,10 +22,10 @@ fetchData().then(data => {
   console.log(data);
   data2 = data;
 
+console.log(data2.items[4].id.videoId);
 });
 
 fetchData();
-console.log(data2.items[4].id.videoId);
   onMount(async function(){
   
   
