@@ -22,16 +22,17 @@ fetchData().then(data => {
   console.log(data);
   data2 = data;
 
-console.log(data2.items[4].id.videoId);
+  console.log(data2.items[4].id.videoId);
+    for(var index = 0; index < data2.items.length; index++){
+      vids[index] = data2.items[index].id.videoId; 
+     }
+
 });
 
 fetchData();
   onMount(async function(){
   
   
-    for(var index = 0; index < data2.items.length; index++){
-      vids[index] = data2.items[index].id.videoId; 
-     }
 
     var newvids = vids.join();
 
