@@ -20,6 +20,7 @@ const fetchData = async () =>
 
 fetchData().then(data => {
   console.log(data);
+  data2 = data;
 
 });
 
@@ -28,8 +29,8 @@ fetchData();
   onMount(async function(){
   
   
-    for(var index = 0; index < data.items.length; index++){
-      vids[index] = data.items[index].snippet.id.videoId; 
+    for(var index = 0; index < data2.items.length; index++){
+      vids[index] = data2.items[index].id.videoId; 
      }
 
     var newvids = vids.join();
