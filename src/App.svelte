@@ -29,7 +29,7 @@ fetchData();
   
   
     for(var index = 0; index < data.items.length; index++){
-      vids[index] = data.items[index].snippet.resourceId.videoId; 
+      vids[index] = data.items[index].snippet.id.videoId; 
      }
 
     var newvids = vids.join();
