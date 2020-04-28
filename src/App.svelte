@@ -23,10 +23,11 @@ fetchData().then(data => {
   data2 = data;
 
   console.log(data2.items[4].id.videoId);
-    for(var index = 0; index < data2.items.length; index++){
-      vids[index] = data2.items[index].id.videoId; 
-     }
+  for(var index = 0; index < data2.items.length; index++){
+    vids[index] = data2.items[index].id.videoId; 
+  }
 
+  displayedvids = vids;
 });
 
 fetchData();
@@ -34,12 +35,11 @@ fetchData();
   
   
 
-    var newvids = vids.join();
 
 
   
 
-    displayedvids = vids;
+    
     
 
 
