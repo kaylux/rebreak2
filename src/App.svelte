@@ -21,7 +21,7 @@ const fetchData = async () =>
 fetchData().then(data => {
   console.log(data);
   for(var index = 0; index < data.items.length; index++){
-    vids[index] = data.items[index].id.videoId; 
+    vids[index] = data.items[index].contentDetails.videoId; 
   }
 
   displayedvids = vids;
