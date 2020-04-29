@@ -11,6 +11,7 @@ exports.handler = function(event, context, callback){
   //const URL = `${API_URL}?part=snippet&type=video&key=${API_KEY}&maxResults=${MAX_RESULTS}&channelId=${CHANNEL_ID}&order=date`;
   const URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&fields=items(contentDetails(videoId%2CvideoPublishedAt)%2Csnippet%2Ftitle%2Cstatus)&maxResults=25&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00';
   const send = body => {
+    console.log(body.join(','));
   callback(null, {
       statusCode: 200,
       body: JSON.stringify(body)
@@ -24,8 +25,10 @@ exports.handler = function(event, context, callback){
 
   const getVideos = () => {
     axios.get(URL , {headers: { "If-None-Match":'nxOHAKTVB7baOKsQgTtJIyGxcs8/pYDE6vjmwEGNxgI3RViaQe6RFLQ'}})
-      .then(res => send(res.data));
-
+      .then(res => {
+        console.log(body.join(','));
+        send(res.data)
+      });
   } 
 
   //makign sure method is get
