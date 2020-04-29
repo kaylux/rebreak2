@@ -30,11 +30,16 @@ fetchData().then(data => {
 
 fetchData();
 
+const mostPopularVids = async () =>
+  await (await fetch('/.netlify/functions/mostpopular')).json();
 
-  onMount(async function(){
-  
- });
 
+mostPopularVids().then(data => {
+  console.log(data);
+
+});
+
+ mostPopularVids();
 
 
 
