@@ -37,10 +37,10 @@ const mostPopularVids = async () =>
 mostPopularVids().then(data => {
   console.log(data.items[4].id);
   var index = Object.keys(data).sort(function(a,b) {
-              return data.items[b].id - data.items[b].id;
+              return data.items[b].id - data.items[a].id;
             });
 
-  console.log(index[0] + ':' + data[index[0]].items.id); // Bill:186
+  console.log(index[0] + ':' + data.items[index[0]].id); // Bill:186
 
 });
 
