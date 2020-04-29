@@ -25,6 +25,7 @@ fetchData().then(data => {
   }
 
   displayedvids = vids;
+  console.log(vids.join(','));
 });
 
 fetchData();
