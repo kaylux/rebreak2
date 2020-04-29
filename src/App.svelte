@@ -25,7 +25,7 @@ fetchData().then(data => {
   }
 
   displayedvids = vids;
-  console.log(vids.join(','));
+
 });
 
 fetchData();
@@ -35,7 +35,12 @@ const mostPopularVids = async () =>
 
 
 mostPopularVids().then(data => {
-  console.log(data);
+  console.log(data.items[4].id);
+  var index = Object.keys(data).sort(function(a,b) {
+              return data.items[b].id - data.items[b].id;
+            });
+
+  console.log(index[0] + ':' + data[index[0]].items.id); // Bill:186
 
 });
 

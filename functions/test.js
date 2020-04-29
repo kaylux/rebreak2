@@ -10,6 +10,7 @@ exports.handler = function(event, context, callback){
 
   //const URL = `${API_URL}?part=snippet&type=video&key=${API_KEY}&maxResults=${MAX_RESULTS}&channelId=${CHANNEL_ID}&order=date`;
   const URL = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet%2CcontentDetails&playlistId=UUwIxn6d5t7gZvebnGUoWJ3A&fields=items(contentDetails(videoId%2CvideoPublishedAt)%2Csnippet%2Ftitle%2Cstatus)&maxResults=25&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00';
+  
   const send = body => {
   callback(null, {
       statusCode: 200,
