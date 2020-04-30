@@ -381,8 +381,8 @@ footer {
           <div class="box">
             <i class="fas fa-globe fa-4x"></i>
 
-          <iframe class='youtubebox' width="320" height="200"
-              src="https://www.youtube.com/embed/{vid}">
+          <iframe class='lazyload' width="320" height="200"
+              dat-src="https://www.youtube.com/embed/{vid}">
           </iframe>
         </div>
         
