@@ -47,7 +47,7 @@ mostPopularVids().then(data => {
   }
 
   vids2.sort((a, b) => Number(a.views) - Number(b.views));
-console.log("ascending", vids);
+console.log("ascending", vids2);
   
 
 });
