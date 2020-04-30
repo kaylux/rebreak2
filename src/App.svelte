@@ -66,7 +66,7 @@ function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 
   console.log('function init');
           for(var index = 0; index < vids.length; index++){
-    displayedvids[index] = vids[index].id; 
+    displayedvids[index] = vids[index]; 
   }
 
 }
