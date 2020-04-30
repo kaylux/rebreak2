@@ -31,7 +31,7 @@ exports.handler = function(event, context, callback){
 
 
   const getViews = (res) => {
-    axios.get('https://www.googleapis.com/youtube/v3/videos?part=statistics&id='res'&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00' , {headers: { "If-None-Match":'nxOHAKTVB7baOKsQgTtJIyGxcs8/pYDE6vjmwEGNxgI3RViaQe6RFLQ'}})
+    axios.get(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${res}&key=AIzaSyC5UTeickpgiE_xSIXJqDZXMZ5rzq9Ty00` , {headers: { "If-None-Match":'nxOHAKTVB7baOKsQgTtJIyGxcs8/pYDE6vjmwEGNxgI3RViaQe6RFLQ'}})
       .then(res => send(res.data));
 
   } 
