@@ -61,13 +61,16 @@ console.log("ascending", vids2);
 
 function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 
-    displayedvids = vids2.id;
+    displayedvids = vids;
 
 }
  
 function topVideos(){
 
-    displayedvids = vids2.id;
+      for(var index = 0; index < data.items.length; index++){
+    displayedvids[i] = vids2[i].id; 
+  }
+
 
 }
 
