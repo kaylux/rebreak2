@@ -46,7 +46,7 @@ mostPopularVids().then(data => {
   
   }
 
-  vids2.sort((a, b) => Number(a.views) - Number(b.views));
+  vids2.sort((a, b) => Number(b.views) - Number(a.views));
 console.log("ascending", vids2);
   
 
@@ -67,7 +67,7 @@ function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
  
 function topVideos(){
 
-    displayedvids = vids2;
+    displayedvids = vids2.id;
 
 }
 
