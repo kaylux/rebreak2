@@ -43,9 +43,11 @@ mostPopularVids().then(data => {
     views: data.items[index].statistics.viewCount
   });
 
-  console.log(vids2);
+  
   }
 
+  vids2.sort((a, b) => Number(a.views) - Number(b.views));
+console.log("ascending", vids);
   
 
 });
