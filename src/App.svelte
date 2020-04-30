@@ -61,7 +61,7 @@ console.log("ascending", vids2);
 
 function recentVideos(){//Button Click, 0 = Most Recent, 1 = Most Viewed
 
-    displayedvids = vids;
+    displayedvids = vids2.id;
 
 }
  
