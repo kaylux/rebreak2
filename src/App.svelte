@@ -35,12 +35,15 @@ const mostPopularVids = async () =>
 
 
 mostPopularVids().then(data => {
-  console.log(data.items[4].id);
-  var index = Object.keys(data).sort(function(a,b) {
-              return data.items[b].id - data.items[a].id;
-            });
+  console.log(data);
 
-  console.log(index[0] + ':' + data.items[index[0]].id); // Bill:186
+  var newVids = [ [] ];
+  for(var i = 0; i < data.items.length; i++){
+    newvids[i].videoID = data.items[index].id; 
+    newvids[i].views = data.items[index].statistics.viewCount; 
+  }
+  console.log(newvids);
+  
 
 });
 
