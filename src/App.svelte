@@ -37,6 +37,15 @@ const mostPopularVids = async () =>
 mostPopularVids().then(data => {
   console.log(data);
 
+  for(var index = 0; index < data.items.length; index++){
+    vids2.push({
+    id: data.items[i].id,
+    views: data.items[i].statistics.viewCount
+  });
+
+  console.log(vids2);
+  }
+
   
 
 });
