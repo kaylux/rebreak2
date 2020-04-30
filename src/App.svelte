@@ -2,6 +2,9 @@
   
 
    import  { onMount  } from "svelte";
+import lazySizes from 'lazysizes';
+import 'lazysizes/plugins/attrchange/ls.attrchange';
+
 
   var vids = [ ];
   var vids2 = [ ];
