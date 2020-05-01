@@ -4,7 +4,9 @@ const axios = require('axios');
 
 exports.handler = function(event, context, callback){
   const {API_URL, CHANNEL_ID, API_KEY} = process.env;
-  const videoIds = event.queryStringParameters.videoIds;
+  const videoIds = event.queryStringParameters.test;
+  console.log(videoIds);
+  console.log(event.queryStringParameters.test);
 
   const MAX_RESULTS = '10';
   const UPLOADS_PLAYLIST = 'UUwIxn6d5t7gZvebnGUoWJ3A';

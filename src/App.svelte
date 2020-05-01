@@ -33,8 +33,10 @@ fetchData().then(data => {
 
 fetchData();
 
+var testvar = vids.join(',');
+
 const mostPopularVids = async () =>
-  await (await fetch('/.netlify/functions/mostpopular')).json();
+  await (await fetch(`/.netlify/functions/mostpopular?test=${testvar}`)).json();
 
 
 mostPopularVids().then(data => {
